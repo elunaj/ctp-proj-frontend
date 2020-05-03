@@ -1,3 +1,18 @@
 body > div.pusher > div.ui.inverted.vertical.masthead.center.aligned.segment{
     background-image: url('https://images.unsplash.com/photo-1572177191856-3cde618dee1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=564&q=80') !important;
 }
+
+
+
+.navbar {
+    width: 100%;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: top 0.6s;
+}
+
+.navbar--hidden {
+    top: -50px;
+}
