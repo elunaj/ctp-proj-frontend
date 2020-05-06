@@ -5,13 +5,13 @@ import "../styles/HomePage.css";
 // import MovieList from "./MovieList";
 
 export class Movies extends Component {
-  // state = { movies: [] };
+  state = { error: "" };
 
   // Callback for making a network request when the search term changes.
   // The network request is asynchronous, so we tag our function as `async` and
   // `await` to allow the promise to resolve
-  onSearchSubmit = (term) => {
-    axios
+  onSearchSubmit = async (term) => {
+    const response = await axios
       .post("http://localhost:5000/analysis/", {
         text: term,
       })
@@ -20,6 +20,7 @@ export class Movies extends Component {
       })
       .catch((error) => {
         console.log(error);
+        this.setState({ error });
       });
   };
 
@@ -40,6 +41,11 @@ export class Movies extends Component {
                     totam eligendi tempora.
                   </p>
                   <SearchBar onSearchSubmit={this.onSearchSubmit} />
+                  {this.state.error ? (
+                    <h1 style={{ color: "red" }}>there has been an error</h1>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             </div>
