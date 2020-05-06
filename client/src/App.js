@@ -1,13 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import HomePage from "./pages/HomePage";
+import ResultsPage from "./pages/ResultsPage";
 import Navigation from "./components/Navigation";
 
 const App = () => {
   return (
-    <div>
+    <Router>
       <Navigation />
-      <HomePage />
-    </div>
+
+      <Switch>
+        <Route path="/results" component={ResultsPage} />
+        <Route path="/" component={HomePage} />
+        <HomePage />
+      </Switch>
+    </Router>
   );
 };
 

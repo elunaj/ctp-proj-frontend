@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 class SearchBar extends React.Component {
   state = { term: "" };
 
@@ -11,19 +13,26 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div className="form-container">
-        <form class="form-inline" onSubmit={this.onFormSubmit}>
-          <div class="form-group mx-sm-3 mb-2">
+        <form onSubmit={this.onFormSubmit}>
+          <div className="input-group mb-3">
             <input
-              className="form-field"
+              className="form-field form-control input"
               type="text"
               value={this.state.term}
               onChange={(e) => this.setState({ term: e.target.value })}
               placeholder='Try "I am feeling down"'
+              aria-label="How are you feeling?"
+              aria-describedby="basic-addon2"
             />
+            <div class="input-group-append">
+              <button
+                className="btn btn-outline-secondary search-button"
+                type="submit"
+              >
+                GO!
+              </button>
+            </div>
           </div>
-          <button type="submit" class="btn btn-primary submit-button">
-            Find Movies
-          </button>
         </form>
       </div>
     );

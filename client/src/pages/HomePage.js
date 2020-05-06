@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+
 import SearchBar from "../components/SearchBar";
 import axios from "axios";
 import "../styles/HomePage.css";
+
 // import MovieList from "./MovieList";
 
 export class Movies extends Component {
-  state = { error: "" };
+  state = { error: "", success: false };
 
   // Callback for making a network request when the search term changes.
   // The network request is asynchronous, so we tag our function as `async` and
@@ -17,6 +20,7 @@ export class Movies extends Component {
       })
       .then((response) => {
         console.log(response.data);
+        this.setState({ success: true });
       })
       .catch((error) => {
         console.log(error);
@@ -25,13 +29,23 @@ export class Movies extends Component {
   };
 
   render() {
+    if (this.state.success)
+      return (
+        <Redirect
+          push
+          to={{
+            pathname: "/results",
+          }}
+        />
+      );
+
     return (
       <div>
         <div className="hero-container">
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
-                <div className="hero-content-contaienr">
+                <div className="jumbotron">
                   <h1 className="hero-heading">
                     Lorem ipsum dolor sit amet Lorem, ipsum..
                   </h1>
