@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-
+import MovieList from "../components/MovieList";
 export class ResultsPage extends Component {
   render() {
-    return <div>hello from the results page</div>;
+    return (
+      <div>
+        <MovieList movies={this.props.location.movies} />
+      </div>
+    );
   }
 }
 

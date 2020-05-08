@@ -8,7 +8,7 @@ import "../styles/HomePage.css";
 // import MovieList from "./MovieList";
 
 export class Movies extends Component {
-  state = { error: "", success: false };
+  state = { error: "", success: false, movies: [] };
 
   // Callback for making a network request when the search term changes.
   // The network request is asynchronous, so we tag our function as `async` and
@@ -19,8 +19,8 @@ export class Movies extends Component {
         text: term,
       })
       .then((response) => {
-        console.log(response.data);
-        this.setState({ success: true });
+        console.log(response.data.response);
+        this.setState({ success: true, movies: response.data.response });
       })
       .catch((error) => {
         console.log(error);
@@ -32,9 +32,10 @@ export class Movies extends Component {
     if (this.state.success)
       return (
         <Redirect
-          push
           to={{
             pathname: "/results",
+            //pass movies through props
+            movies: this.state.movies.results,
           }}
         />
       );
