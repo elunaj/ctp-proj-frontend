@@ -9,25 +9,36 @@
 
  Large devices (desktops, less than 1200px)
 @media (max-width: 1199.98px)  */
+
+.results-hero-container {
+  color: #f0f0f0;
+}
+.results-hero-heading {
+  font-weight: 300;
+  font-size: 3rem;
+}
 .resultsCard {
   border: none !important;
   background: none;
 }
+.card-img-top:hover {
+  opacity: 0.6;
+}
+.card-columns .card {
+  margin-bottom: 2rem;
+}
 .resultsCard h5 {
-  color: white;
+  color: #c8c8c8;
   font-size: 1.125rem;
+  font-weight: 400;
 }
 .resultsCard .card-body {
   padding: 0px;
 }
 .card-columns {
-  column-count: 5;
+  column-count: 4;
 }
-@media only screen and (max-width: 1199.98px) {
-  .card-columns {
-    column-count: 4;
-  }
-}
+
 @media only screen and (max-width: 991.98px) {
   .card-columns {
     column-count: 3;
