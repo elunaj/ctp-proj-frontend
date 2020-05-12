@@ -1,20 +1,23 @@
 import React from "react";
 import { Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Logo from "../images/logo512.png";
 const Navigation = () => {
   return (
     <div>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home">
-          <img
-            alt=""
-            src={Logo}
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
-          />
-          FeelsFlix
-        </Navbar.Brand>
+        <Link to="/">
+          <Navbar.Brand>
+            <img
+              alt=""
+              src={Logo}
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />
+            FeelsFlix
+          </Navbar.Brand>
+        </Link>
       </Navbar>
     </div>
   );

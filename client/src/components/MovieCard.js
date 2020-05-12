@@ -1,39 +1,29 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "../styles/MovieCard.css";
 
 export class MovieCard extends Component {
-  // Refs need to be created in the constructor
-  constructor(props) {
-    super(props);
-    this.state = { spans: 0 };
-    // Create a ref and store it in the `imageRef` prop
-    this.imageRef = React.createRef();
-  }
-
-  componentDidMount() {
-    // Use ref to access the DOM element
-    this.imageRef.current.addEventListener("load", this.setSpans);
-  }
-
-  setSpans = () => {
-    const height = this.imageRef.current.clientHeight;
-    const spans = Math.ceil(height / 8);
-    // This is equivalent to {spans: spans}
-    this.setState({ spans });
-  };
-
   render() {
-    // Destructure the movie object to extract the properties we care about
-    // const {  Poster } = this.props.image;
+    const { title, image, id, overview } = this.props;
     return (
-      <div style={{ gridRowEnd: `span ${this.state.spans}` }}>
-        {/* Assign  ref to jsx element */}
-        <div>
-          <img ref={this.imageRef} src={`${this.props.image}`} />
-          <label>{this.props.title}</label>
+      <div class="card resultsCard">
+        <Link to={{ pathname: "/show", state: { id } }}>
+          <img
+            class="card-img-top"
+            src={`http://image.tmdb.org/t/p/w185/${image}`}
+            alt="Card image cap"
+          />
+        </Link>
+        <div class="card-body">
+          <h5 class="card-title">{title}</h5>
+          {/* <p className='card-body'>{overview}</p> */}
+
+          <Link to={{ pathname: "/show", state: { id } }}>click meh</Link>
         </div>
       </div>
     );
   }
 }
-
 export default MovieCard;
+{
+}
