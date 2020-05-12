@@ -6,7 +6,6 @@ import axios from "axios";
 import "../styles/HomePage.css";
 
 // import MovieList from "./MovieList";
-
 export class Movies extends Component {
   state = { error: "", success: false, movies: [] };
 
