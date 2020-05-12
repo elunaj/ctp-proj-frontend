@@ -1,39 +1,36 @@
 import React from "react";
-import { Redirect } from "react-router";
 import MovieCard from "../components/MovieCard";
 
-const MovieList = ({ movies }) => {
-  if (movies !== undefined) {
-    const movie = movies.map((movie) => {
-      return (
-        <MovieCard
-          title={movie.title}
-          image={movie.poster_path}
-          date={movie.release_date}
-          id={movie.id}
-          overview={movie.overview}
-        />
-      );
-    });
+const MovieList = () => {
+  let moviesData = JSON.parse(localStorage.getItem("movies"));
+  const movie = moviesData.map((movie) => {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="card-columns">{movie} </div>
-          </div>
+      <MovieCard
+        title={movie.title}
+        image={movie.poster_path}
+        date={movie.release_date}
+        id={movie.id}
+        overview={movie.overview}
+      />
+    );
+  });
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col-lg-12">
+          <div className="card-columns">{movie} </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 
   //If the movies are undefined or if the user somehow makes it this far without submiting the form
   //the the user back to the homepage to fill out the form
-  else
-    return (
-      <h2 className="ui container ui big red label">
-        <Redirect to="/" />
-      </h2>
-    );
+  // return (
+  //   <h2 className="ui container ui big red label">
+  //     <Redirect to="/" />
+  //   </h2>
+  // );
 };
 
 export default MovieList;
