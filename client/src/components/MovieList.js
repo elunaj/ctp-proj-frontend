@@ -1,6 +1,5 @@
 import React from "react";
 import { Redirect } from "react-router";
-// import "../images/MovieList.css";
 import MovieCard from "../components/MovieCard";
 
 const MovieList = ({ movies }) => {
@@ -12,10 +11,19 @@ const MovieList = ({ movies }) => {
           image={movie.poster_path}
           date={movie.release_date}
           id={movie.id}
+          overview={movie.overview}
         />
       );
     });
-    return <div className="image-list">{movie}</div>;
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="card-columns">{movie} </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   //If the movies are undefined or if the user somehow makes it this far without submiting the form

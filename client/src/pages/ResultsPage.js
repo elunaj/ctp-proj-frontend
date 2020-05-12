@@ -3,7 +3,7 @@ import MovieList from "../components/MovieList";
 export class ResultsPage extends Component {
   render() {
     return (
-      <div>
+      <div style={{ background: "#141414" }}>
         <MovieList movies={this.props.location.movies} />
       </div>
     );

@@ -1,0 +1,45 @@
+/* Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) 
+
+/Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) 
+
+ Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) 
+
+ Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px)  */
+.resultsCard {
+  border: none !important;
+  background: none;
+}
+.resultsCard h5 {
+  color: white;
+  font-size: 1.125rem;
+}
+.resultsCard .card-body {
+  padding: 0px;
+}
+.card-columns {
+  column-count: 5;
+}
+@media only screen and (max-width: 1199.98px) {
+  .card-columns {
+    column-count: 4;
+  }
+}
+@media only screen and (max-width: 991.98px) {
+  .card-columns {
+    column-count: 3;
+  }
+}
+@media only screen and (max-width: 767.98px) {
+  .card-columns {
+    column-count: 2;
+  }
+}
+@media only screen and (max-width: 575.98px) {
+  .card-columns {
+    column-count: 1;
+  }
+}
