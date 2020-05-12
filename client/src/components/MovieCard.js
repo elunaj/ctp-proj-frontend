@@ -4,7 +4,7 @@ import "../styles/MovieCard.css";
 
 export class MovieCard extends Component {
   render() {
-    const { title, image, id, overview, text } = this.props;
+    const { title, image, id, overview } = this.props;
     return (
       <div class="card resultsCard">
         <Link to={{ pathname: "/show", state: { id } }}>
@@ -16,7 +16,6 @@ export class MovieCard extends Component {
         </Link>
         <div class="card-body">
           <h5 class="card-title">{title}</h5>
-            <h5 class="card-title">{text}</h5>
           {/* <p className='card-body'>{overview}</p> */}
 
           <Link to={{ pathname: "/show", state: { id } }}>click meh</Link>
