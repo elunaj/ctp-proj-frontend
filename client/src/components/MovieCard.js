@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "../styles/MovieCard.css";
 
 export class MovieCard extends Component {
   render() {
@@ -17,13 +16,9 @@ export class MovieCard extends Component {
         <div class="card-body">
           <h5 class="card-title">{title}</h5>
           {/* <p className='card-body'>{overview}</p> */}
-
-          <Link to={{ pathname: "/show", state: { id } }}>click meh</Link>
         </div>
       </div>
     );
   }
 }
 export default MovieCard;
-{
-}

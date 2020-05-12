@@ -7,7 +7,7 @@ import "../styles/HomePage.css";
 
 // import MovieList from "./MovieList";
 export class Movies extends Component {
-  state = { error: "", success: false, movies: [] };
+  state = { error: "", success: false };
 
   // Callback for making a network request when the search term changes.
   // The network request is asynchronous, so we tag our function as `async` and
@@ -19,7 +19,11 @@ export class Movies extends Component {
       })
       .then((response) => {
         console.log(response.data.response);
-        this.setState({ success: true, movies: response.data.response });
+        localStorage.setItem(
+          "movies",
+          JSON.stringify(response.data.response.results)
+        );
+        this.setState({ success: true });
       })
       .catch((error) => {
         console.log(error);
@@ -31,16 +35,15 @@ export class Movies extends Component {
     if (this.state.success)
       return (
         <Redirect
+          push
           to={{
             pathname: "/results",
-            //pass movies through props
-            movies: this.state.movies.results,
           }}
         />
       );
 
     return (
-      <div>
+      <div style={{ background: "#141414" }}>
         <div className="hero-container">
           <div className="container">
             <div className="row">
@@ -63,6 +66,46 @@ export class Movies extends Component {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="container">
+          <div className="home-info-columns">
+            <h2 className="hero-info-heading">Lorem ipsum dolor sit amet.</h2>
+            <div className="row">
+              <div className="col-lg-4 col-md-4 col-sm-12">
+                <div className="home-info-column">
+                  <h5>Lorem, ipsum.</h5>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Odit ratione quas possimus cupiditate veniam vitae debitis
+                    nemo deleniti dolore praesentium?
+                  </p>
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-4 col-sm-12">
+                <div className="home-info-column">
+                  <h5>Lorem, ipsum.</h5>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Odit ratione quas possimus cupiditate veniam vitae debitis
+                    nemo deleniti dolore praesentium?
+                  </p>
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-4 col-sm-12">
+                <div className="home-info-column">
+                  <h5>Lorem, ipsum.</h5>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Odit ratione quas possimus cupiditate veniam vitae debitis
+                    nemo deleniti dolore praesentium?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-6 col-sm-12"></div>
           </div>
         </div>
       </div>
