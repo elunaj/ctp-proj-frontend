@@ -20,7 +20,7 @@ class SearchBar extends React.Component {
               type="text"
               value={this.state.term}
               onChange={(e) => this.setState({ term: e.target.value })}
-              placeholder='Try "I am feeling down"'
+              placeholder="How are you feeling today?"
               aria-label="How are you feeling?"
               aria-describedby="basic-addon2"
             />

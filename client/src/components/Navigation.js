@@ -5,7 +5,7 @@ import Logo from "../images/logo512.png";
 const Navigation = () => {
   return (
     <div>
-      <Navbar bg="dark" variant="dark">
+      <Navbar variant="dark" style={{ background: "#141414" }}>
         <Link to="/">
           <Navbar.Brand>
             <img
