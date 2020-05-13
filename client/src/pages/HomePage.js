@@ -3,6 +3,8 @@ import { Redirect } from "react-router-dom";
 
 import SearchBar from "../components/SearchBar";
 import axios from "axios";
+import { animateScroll as scroll } from "react-scroll";
+
 import "../styles/HomePage.css";
 
 // import MovieList from "./MovieList";
@@ -30,7 +32,9 @@ export class Movies extends Component {
         this.setState({ error });
       });
   };
-
+  scrollToTop() {
+    scroll.scrollToTop();
+  }
   render() {
     if (this.state.success)
       return (
@@ -44,7 +48,7 @@ export class Movies extends Component {
 
     return (
       <div style={{ background: "#141414" }}>
-        <div className="hero-container">
+        <div className="hero-container" id="hero">
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
@@ -72,7 +76,7 @@ export class Movies extends Component {
           <div className="home-info-columns">
             <h2 className="hero-info-heading">Lorem ipsum dolor sit amet.</h2>
             <div className="row">
-              <div className="col-lg-4 col-md-4 col-sm-12">
+              <div className="col-lg-4 col-md-6 col-sm-12">
                 <div className="home-info-column">
                   <h5>Lorem, ipsum.</h5>
                   <p>
@@ -82,7 +86,7 @@ export class Movies extends Component {
                   </p>
                 </div>
               </div>
-              <div className="col-lg-4 col-md-4 col-sm-12">
+              <div className="col-lg-4 col-md-6 col-sm-12">
                 <div className="home-info-column">
                   <h5>Lorem, ipsum.</h5>
                   <p>
@@ -92,8 +96,8 @@ export class Movies extends Component {
                   </p>
                 </div>
               </div>
-              <div className="col-lg-4 col-md-4 col-sm-12">
-                <div className="home-info-column">
+              <div className="col-lg-4 col-md-12 col-sm-12">
+                <div className="home-info-column last">
                   <h5>Lorem, ipsum.</h5>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -104,8 +108,41 @@ export class Movies extends Component {
               </div>
             </div>
           </div>
-          <div className="row">
-            <div className="col-lg-6 col-sm-12"></div>
+        </div>
+
+        <div style={{ background: "white" }}>
+          <div className="container">
+            <div className="row home-graphic-section">
+              <div className="col-lg-6 col-sm-12">
+                <div className="home-graphic-sec-graphic">
+                  Lorem, ipsum dolor
+                </div>
+              </div>
+              <div className="col-lg-6 col-sm-12">
+                <div className="home-graphic-sec-content">
+                  <h3>Lorem, ipsum dolor.</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Possimus quaerat incidunt illo necessitatibus delectus sunt
+                    odio labore quas amet dicta?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="container">
+          <div className="row home-exit-section">
+            <div className="col-lg-12">
+              <div className="home-exit-section-container">
+                <h2>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                </h2>
+                <a onClick={this.scrollToTop} className="primary-button">
+                  Lets go!
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
