@@ -44,7 +44,7 @@ body {
   color: white;
 }
 .hero-container {
-  height: 95vh;
+  height: 90%;
   background-image: linear-gradient(
       to right bottom,
       rgba(9, 17, 30, 0.849),
@@ -65,11 +65,13 @@ body {
   border-radius: 5px;
 }
 
+/* INFORMATION SECTION */
 .hero-info-heading {
   text-align: center;
   margin-top: 5rem;
+  font-weight: 700;
+  font-size: 2.5rem;
 }
-
 .home-info-columns {
   height: 90%;
 }
@@ -86,4 +88,92 @@ body {
 }
 .home-info-column p {
   color: #f0f0f0;
+}
+
+@media only screen and (max-width: 991.98px) {
+  .last {
+    margin-top: 0rem !important;
+    margin-left: 15px;
+    width: 50%;
+  }
+  .home-info-column {
+    margin-bottom: 8rem;
+  }
+}
+@media only screen and (max-width: 767.98px) {
+  .home-info-column {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    width: 100%;
+  }
+  .hero-info-heading {
+    text-align: left;
+  }
+  .last {
+    margin-top: 3rem !important;
+    margin-bottom: 4rem !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+}
+/* GRAPHIC INFO SECTION  */
+.home-graphic-section {
+  color: #333;
+  height: 90%;
+}
+
+.home-graphic-sec-graphic {
+  margin-top: 15rem;
+  margin-bottom: 10rem;
+}
+.home-graphic-sec-content {
+  margin-top: 15rem;
+  margin-bottom: 10rem;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.home-exit-section {
+  height: 80%;
+}
+.home-exit-section-container {
+  text-align: center;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+.home-exit-section h2 {
+  margin-bottom: 1.5rem;
+
+  font-weight: 700;
+  font-size: 2.2rem;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.primary-button {
+  display: inline-block;
+  padding: 0.8rem 4rem 0.8rem 4rem;
+  background: #1c58b5;
+  border: none;
+  border-radius: 100px;
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: all ease 0.3s;
+}
+.primary-button:hover {
+  text-decoration: none;
+  color: #ffffff;
+  cursor: pointer;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+}
+.primary-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2) !important;
 }
