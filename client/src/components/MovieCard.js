@@ -9,7 +9,7 @@ export class MovieCard extends Component {
         <Link to={{ pathname: "/show", state: { id } }}>
           <img
             class="card-img-top"
-            src={`http://image.tmdb.org/t/p/w185/${image}`}
+            src={`http://image.tmdb.org/t/p/w500/${image}`}
             alt="Card image cap"
           />
         </Link>

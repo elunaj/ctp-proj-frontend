@@ -72,6 +72,7 @@ body {
   font-weight: 700;
   font-size: 2.5rem;
 }
+
 .home-info-columns {
   height: 90%;
 }
@@ -144,7 +145,6 @@ body {
 }
 .home-exit-section h2 {
   margin-bottom: 1.5rem;
-
   font-weight: 700;
   font-size: 2.2rem;
   width: 80%;
