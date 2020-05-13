@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 
+import movieGraphic from "../images/undraw_movie_night_fldd.svg";
+import netflix from "../images/netflix-home.svg";
+import couch from "../images/couch.svg";
+import video from "../images/videos-stacked.svg";
 import SearchBar from "../components/SearchBar";
 import axios from "axios";
 import { animateScroll as scroll } from "react-scroll";
@@ -59,7 +63,7 @@ export class Movies extends Component {
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Cumque dolore odit ipsum illo ipsa quasi alias! Ducimus
-                    totam eligendi tempora.
+                    totam eligendi tempora .
                   </p>
                   <SearchBar onSearchSubmit={this.onSearchSubmit} />
                   {this.state.error ? (
@@ -78,6 +82,7 @@ export class Movies extends Component {
             <div className="row">
               <div className="col-lg-4 col-md-6 col-sm-12">
                 <div className="home-info-column">
+                  <img src={video} alt="" />
                   <h5>Lorem, ipsum.</h5>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -88,6 +93,7 @@ export class Movies extends Component {
               </div>
               <div className="col-lg-4 col-md-6 col-sm-12">
                 <div className="home-info-column">
+                  <img src={netflix} alt="" />
                   <h5>Lorem, ipsum.</h5>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -98,6 +104,7 @@ export class Movies extends Component {
               </div>
               <div className="col-lg-4 col-md-12 col-sm-12">
                 <div className="home-info-column last">
+                  <img src={couch} alt="" />
                   <h5>Lorem, ipsum.</h5>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -112,19 +119,23 @@ export class Movies extends Component {
 
         <div style={{ background: "white" }}>
           <div className="container">
-            <div className="row home-graphic-section">
-              <div className="col-lg-6 col-sm-12">
+            <div className="row flex-column-reverse flex-lg-row home-graphic-section">
+              <div className="col-lg-6 col-md-12 col-sm-12">
                 <div className="home-graphic-sec-graphic">
-                  Lorem, ipsum dolor
+                  <img src={movieGraphic} alt="" />
                 </div>
               </div>
-              <div className="col-lg-6 col-sm-12">
+              <div className="col-lg-6 col-md-12 col-sm-12 ">
                 <div className="home-graphic-sec-content">
                   <h3>Lorem, ipsum dolor.</h3>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Possimus quaerat incidunt illo necessitatibus delectus sunt
-                    odio labore quas amet dicta?
+                    Possimus quaerat incidunt{" "}
+                    <span style={{ color: "#1c58b5", fontWeight: "700" }}>
+                      illo necessitatibus delectus
+                    </span>{" "}
+                    sunt odio labore quas amet dicta illo necessitatibus
+                    delectus sunt odio labore quas amet dicta?
                   </p>
                 </div>
               </div>

@@ -23,7 +23,6 @@ body {
   color: white;
 }
 .jumbotron {
-  position: relative;
   margin-top: 10%;
   background-color: rgba(0, 0, 0, 0.336);
 }
@@ -32,7 +31,7 @@ body {
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
   font-size: 3rem;
   line-height: 4rem;
   letter-spacing: 0.05em;
@@ -40,7 +39,7 @@ body {
   color: white;
 }
 .jumbotron p {
-  text-align: center;
+  text-align: left;
   color: white;
 }
 .hero-container {
@@ -75,6 +74,10 @@ body {
 .home-info-columns {
   height: 90%;
 }
+.home-info-columns img {
+  width: 40%;
+  margin-bottom: 1rem;
+}
 .home-info-column {
   margin-top: 10rem;
   margin-bottom: 10rem;
@@ -94,7 +97,7 @@ body {
   .last {
     margin-top: 0rem !important;
     margin-left: 15px;
-    width: 50%;
+    width: 40%;
   }
   .home-info-column {
     margin-bottom: 8rem;
@@ -127,6 +130,9 @@ body {
   margin-top: 15rem;
   margin-bottom: 10rem;
 }
+.home-graphic-sec-graphic img {
+  width: 100%;
+}
 .home-graphic-sec-content {
   margin-top: 15rem;
   margin-bottom: 10rem;
@@ -134,6 +140,29 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+.home-graphic-sec-content h3 {
+  font-weight: 700;
+}
+@media only screen and (max-width: 991.98px) {
+  .home-graphic-sec-graphic {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .home-graphic-sec-content {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 767.98px) {
+  .home-graphic-sec-content {
+    margin-left: 0px;
+  }
+}
+/* EXIT SECTION  */
 .home-exit-section {
   height: 80%;
 }
@@ -143,7 +172,7 @@ body {
   margin-bottom: 10rem;
 }
 .home-exit-section h2 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 
   font-weight: 700;
   font-size: 2.2rem;

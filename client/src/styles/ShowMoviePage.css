@@ -1,6 +1,6 @@
 .responsive {
-	width: 50%;
-	height: auto;
+  width: 50%;
+  height: auto;
 }
 
 .poster {
@@ -8,5 +8,5 @@
 }
 
 .backdrop {
-	width: 100%;
+  width: 100%;
 }
