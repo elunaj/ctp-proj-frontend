@@ -51,7 +51,7 @@ export class ShowMoviePage extends Component {
 
     console.log("state in show page" + this.state);
     return (
-      <div>
+      <div style={{color: 'black'}}>
         hello from the show page
 
         {this.state.stateUpdated 
