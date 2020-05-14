@@ -4,9 +4,58 @@
 }
 
 .poster {
-
 }
 
 .backdrop {
   width: 100%;
+}
+.showCard {
+  border: none;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.showPage-bg-container {
+  height: auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.showPage-hero-content-container {
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+.showPage-hero-content-container-right {
+  margin-top: 8rem;
+  margin-bottom: 5rem;
+}
+.movie-title {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 0px;
+}
+.release-year {
+  font-weight: 300;
+  margin-left: 0.5rem;
+}
+
+.genres {
+  font-size: 1rem;
+}
+.tagLine {
+  font-style: italic;
+  color: #c8c8c8;
+}
+.overview-tag {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+.overview {
+  font-size: 1rem;
+}
+.score {
+  display: inline-block;
+  border-radius: 100%;
+  padding: 0.3em 0.4em 0.3em 0.4em;
 }

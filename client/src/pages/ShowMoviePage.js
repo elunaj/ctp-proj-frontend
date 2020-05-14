@@ -27,9 +27,10 @@ export class ShowMoviePage extends Component {
         console.log(data);
 
         this.setState({
-          filmTitle: data.original_title,
+          originalTitle: data.original_title,
+          filmTitle: data.title,
           releaseDate: data.release_date,
-          userScore: data.vote_average,
+          userScore: data.vote_average * 10,
           genres: [...data.genres],
           runTime: data.runtime,
           tagLine: data.tagline,
@@ -47,11 +48,17 @@ export class ShowMoviePage extends Component {
   }
 
   render() {
-    console.log("state in show page" + this.state);
+    const backDropImage = `http://image.tmdb.org/t/p/w780/${this.state.backDropImage}`;
+    const releaseYear = this.state.releaseDate.toString().split("-")[0];
+    const scoreBg =
+      this.state.userScore >= 70
+        ? "#408d53"
+        : this.state.userScore >= 40
+        ? "#6d6419"
+        : "#962329";
     return (
       <div>
-        hello from the show page
-        {this.state.stateUpdated ? (
+        {/* {this.state.stateUpdated ? (
           <div>
             Poster Image:
             <div className="responsive poster">
@@ -89,7 +96,73 @@ export class ShowMoviePage extends Component {
           </div>
         ) : (
           "testing"
-        )}
+        )} */}
+        <div
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(0, 0, 0, 0.726),rgba(0, 0, 0, 0.584)),url(" +
+              backDropImage +
+              ")",
+          }}
+          className="showPage-bg-container"
+        >
+          <div className="container">
+            <div className="row ">
+              <div className="col-lg-4 showPage-hero-content-container">
+                <div className="card d-none d-lg-block showCard">
+                  <img
+                    class="card-img-top"
+                    src={`http://image.tmdb.org/t/p/w780/${this.state.posterImage}`}
+                    alt="Card image cap"
+                  />
+                  <div class="card-body"></div>
+                </div>
+              </div>
+              <div className="col-lg-8 showPage-hero-content-container-right">
+                <h1 className="movie-title">
+                  {this.state.filmTitle}
+                  <span className="release-year">({releaseYear})</span>
+                </h1>
+                <p className="genres">
+                  {this.state.genres.map((genre, i) => {
+                    return (
+                      <span style={{ marginRight: "1rem" }} key={i}>
+                        {genre.name}
+                      </span>
+                    );
+                  })}
+                </p>
+                <h1 style={{ background: `${scoreBg}` }} className="score">
+                  {this.state.userScore}
+                </h1>
+                <p className="tagLine">{this.state.tagLine}</p>
+                <h2 className="overview-tag">Overview</h2>
+                <p className="overview">{this.state.overview}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="container">
+          <div className="row">
+            {/* <ReactPlayer
+              url={`https://www.youtube.com/watch?v=${this.state.videos[0].key}`}
+              playing={false}
+              controls={true}
+              muted={true}
+            /> */}
+            {/* <iframe
+              className="iframe"
+              src={`https://www.youtube.com/watch?v=${this.state.videos[0].key}`}
+              width="100%"
+              height="360"
+              frameborder="0"
+              webkitallowfullscreen
+              mozallowfullscreen
+              allowfullscreen="true"
+              title="csfored-overview"
+            ></iframe> */}
+          </div>
+        </div>
       </div>
     );
   }
