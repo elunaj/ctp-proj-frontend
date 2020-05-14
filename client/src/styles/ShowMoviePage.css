@@ -1,17 +1,19 @@
-.responsive {
-  width: 50%;
-  height: auto;
-}
+/* Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) 
 
-.poster {
-}
+/Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) 
 
-.backdrop {
-  width: 100%;
-}
+ Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) 
+
+ Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px)  */
+
+/* HERO  */
 .showCard {
   border: none;
-  width: 90%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -57,5 +59,79 @@
 .score {
   display: inline-block;
   border-radius: 100%;
-  padding: 0.3em 0.4em 0.3em 0.4em;
+  padding: 0.6em 0.4em 0.6em 0.4em;
+  font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 991.98px) {
+  .showPage-hero-content-container-right {
+    margin-top: 0px;
+  }
+  .showPage-hero-content-container {
+    margin-top: 0px;
+  }
+}
+
+.videoScroll {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  width: 100% !important;
+  border-radius: 0.5rem;
+}
+.videos {
+  display: inline-block !important;
+  flex: 0 0 auto;
+  border-radius: 0.5rem;
+}
+
+/* -webkit- (Chrome, Safari, newer versions of Opera): */
+.videoScroll::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* -moz- (Firefox): */
+.videoScroll {
+  overflow: -moz-scrollbars-none !important;
+}
+
+/* -ms- (Internet Explorer +10): */
+.videoScroll {
+  -ms-overflow-style: none !important;
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
+}
+
+.media-section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: #484848;
+}
+.trailers {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.movie-stats h5 {
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin-bottom: 0px;
+}
+.movie-stats p {
+  margin-bottom: 1rem;
+  color: #333;
+}
+.tooltip {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.movie-stats {
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 5rem 5rem 3rem;
+  border-radius: 5px;
+}
+@media only screen and (max-width: 991.98px) {
+  .movie-stats {
+    margin-top: 3rem;
+  }
 }

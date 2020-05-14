@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import MovieCard from "../components/MovieCard";
+import MovieStats from "../components/MovieStats";
 import ReactPlayer from "react-player";
 import "../styles/ShowMoviePage.css";
 
@@ -15,17 +15,21 @@ export class ShowMoviePage extends Component {
     overview: "",
     posterImage: "",
     backDropImage: "",
+    revenue: 0,
+    runtime: 0,
+    homePage: "",
+    budget: 0,
+    originalLanguage: "",
     videos: [],
     stateUpdated: false,
   };
+  myRef = React.createRef();
 
   componentDidMount() {
     Axios.get(`http://localhost:5000/show/${this.props.location.state.id}`, {})
       .then((response) => {
         let data = response.data;
-        //console.log("user data", data);
         console.log(data);
-
         this.setState({
           originalTitle: data.original_title,
           filmTitle: data.title,
@@ -39,6 +43,10 @@ export class ShowMoviePage extends Component {
           backDropImage: data.backdrop_path,
           videos: [...data.videos.results],
           stateUpdated: true,
+          revenue: data.revenue,
+          homePage: data.homepage,
+          budget: data.budget,
+          originalLanguage: data.original_language,
         });
       })
 
@@ -56,53 +64,14 @@ export class ShowMoviePage extends Component {
         : this.state.userScore >= 40
         ? "#6d6419"
         : "#962329";
+
     return (
       <div>
-        {/* {this.state.stateUpdated ? (
-          <div>
-            Poster Image:
-            <div className="responsive poster">
-              <img
-                class="card-img-top"
-                src={`http://image.tmdb.org/t/p/w500/${this.state.posterImage}`}
-                alt="Card image cap"
-              />
-            </div>
-            Backdrop Image:
-            <div className="responsive backdrop">
-              <img
-                class="card-img-top"
-                src={`http://image.tmdb.org/t/p/w780/${this.state.backDropImage}`}
-                alt="Card image cap"
-              />
-            </div>
-            Film Title: {this.state.filmTitle} <br />
-            Genres:{" "}
-            {this.state.genres.map((genre, i) => {
-              return <li key={i}>{genre.name}</li>;
-            })}
-            Release Date: {this.state.releaseDate} <br />
-            User Score: {this.state.userScore} <br />
-            Runtime: {this.state.runTime} <br />
-            Tag Line: {this.state.tagLine} <br />
-            Overview: {this.state.overview} <br />
-            Trailer: https://www.youtube.com/watch?v={this.state.videos[0].key}
-            <ReactPlayer
-              url={`https://www.youtube.com/watch?v=${this.state.videos[0].key}`}
-              playing={false}
-              controls={true}
-              muted={true}
-            />
-          </div>
-        ) : (
-          "testing"
-        )} */}
         <div
+          ref={this.myRef}
           style={{
-            backgroundImage:
-              "linear-gradient(rgba(0, 0, 0, 0.726),rgba(0, 0, 0, 0.584)),url(" +
-              backDropImage +
-              ")",
+            // backgroundImage: "url(" + backDropImage + ")",
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.726),rgba(0, 0, 0, 0.584)),url(${backDropImage} )`,
           }}
           className="showPage-bg-container"
         >
@@ -126,14 +95,14 @@ export class ShowMoviePage extends Component {
                 <p className="genres">
                   {this.state.genres.map((genre, i) => {
                     return (
-                      <span style={{ marginRight: "1rem" }} key={i}>
+                      <span style={{ marginRight: "5px" }} key={i}>
                         {genre.name}
                       </span>
                     );
                   })}
                 </p>
                 <h1 style={{ background: `${scoreBg}` }} className="score">
-                  {this.state.userScore}
+                  {this.state.userScore}%
                 </h1>
                 <p className="tagLine">{this.state.tagLine}</p>
                 <h2 className="overview-tag">Overview</h2>
@@ -143,24 +112,38 @@ export class ShowMoviePage extends Component {
           </div>
         </div>
         <div className="container">
-          <div className="row">
-            {/* <ReactPlayer
-              url={`https://www.youtube.com/watch?v=${this.state.videos[0].key}`}
-              playing={false}
-              controls={true}
-              muted={true}
-            /> */}
-            {/* <iframe
-              className="iframe"
-              src={`https://www.youtube.com/watch?v=${this.state.videos[0].key}`}
-              width="100%"
-              height="360"
-              frameborder="0"
-              webkitallowfullscreen
-              mozallowfullscreen
-              allowfullscreen="true"
-              title="csfored-overview"
-            ></iframe> */}
+          <div className="row media-section">
+            <div className="col-lg-8 col-md-12">
+              <h3 className="trailers">
+                {this.state.videos[1] ? "Trailers" : "Trailer"}
+              </h3>
+              <div className="videoScroll">
+                {this.state.stateUpdated
+                  ? this.state.videos.map((video) => {
+                      return (
+                        <ReactPlayer
+                          className="videos"
+                          url={`https://www.youtube.com/watch?v=${video.key}`}
+                          playing={false}
+                          controls={true}
+                          muted={true}
+                          light={true}
+                          width="80%"
+                        />
+                      );
+                    })
+                  : null}
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-12">
+              <MovieStats
+                originalLanguage={this.state.originalLanguage}
+                budget={this.state.budget}
+                revenue={this.state.revenue}
+                runtime={this.state.runTime}
+                homePage={this.state.homePage}
+              />
+            </div>
           </div>
         </div>
       </div>

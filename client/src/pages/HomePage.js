@@ -24,11 +24,11 @@ export class Movies extends Component {
         text: term,
       })
       .then((response) => {
-        console.log(response.data.response);
         localStorage.setItem(
           "movies",
           JSON.stringify(response.data.response.results)
         );
+        localStorage.setItem("tone", JSON.stringify(response.data.tone));
         this.setState({ success: true });
       })
       .catch((error) => {
