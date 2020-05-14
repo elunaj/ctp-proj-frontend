@@ -11,6 +11,7 @@ const MovieList = () => {
         date={movie.release_date}
         id={movie.id}
         overview={movie.overview}
+        backdrop={movie.backdrop_path}
       />
     );
   });
