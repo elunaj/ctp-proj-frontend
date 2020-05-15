@@ -15,7 +15,6 @@ export class MovieCard extends Component {
         </Link>
         <div class="card-body">
           <h5 class="card-title">{title}</h5>
-          {/* <p className='card-body'>{overview}</p> */}
         </div>
       </div>
     );

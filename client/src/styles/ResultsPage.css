@@ -14,7 +14,7 @@
   color: #f0f0f0;
 }
 .results-hero-heading {
-  font-weight: 300;
+  font-weight: 700;
   font-size: 3rem;
 }
 .resultsCard {
@@ -31,6 +31,7 @@
   color: #c8c8c8;
   font-size: 1.125rem;
   font-weight: 400;
+  margin-top: 1rem;
 }
 .resultsCard .card-body {
   padding: 0px;
@@ -96,4 +97,20 @@
   animation-iteration-count: infinite;
   animation-fill-mode: none;
   animation-play-state: running;
+}
+.animation-container {
+  height: auto;
+}
+.tone-message-container {
+  box-shadow: 0px 4px 10px #1c58b5;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 5rem 5rem 3rem;
+  border-radius: 5px;
+  color: #484848;
+  background-color: white;
+  margin-bottom: 2rem;
+}
+.results-hero-paragraph {
+  font-size: 1.125rem;
 }

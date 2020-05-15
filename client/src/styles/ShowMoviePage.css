@@ -78,27 +78,12 @@
   overflow-x: auto !important;
   width: 100% !important;
   border-radius: 0.5rem;
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
 }
 .videos {
   display: inline-block !important;
   flex: 0 0 auto;
   border-radius: 0.5rem;
-}
-
-/* -webkit- (Chrome, Safari, newer versions of Opera): */
-.videoScroll::-webkit-scrollbar {
-  display: none !important;
-}
-
-/* -moz- (Firefox): */
-.videoScroll {
-  overflow: -moz-scrollbars-none !important;
-}
-
-/* -ms- (Internet Explorer +10): */
-.videoScroll {
-  -ms-overflow-style: none !important;
-  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
 }
 
 .media-section {
@@ -115,23 +100,84 @@
   font-size: 1.125rem;
   margin-bottom: 0px;
 }
+.movie-stats {
+  color: #333;
+  margin-top: 3rem;
+}
 .movie-stats p {
   margin-bottom: 1rem;
-  color: #333;
 }
 .tooltip {
   display: inline-block;
   margin-bottom: 1rem;
 }
 .movie-stats {
-  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin-left: auto;
   margin-right: auto;
   padding: 2rem 5rem 5rem 3rem;
   border-radius: 5px;
+  background: white;
 }
 @media only screen and (max-width: 991.98px) {
   .movie-stats {
     margin-top: 3rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+/* C A S T  S C R O L L  */
+
+.castScroll {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  width: 100% !important;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.cast {
+  flex: 0 0 auto;
+  border-radius: 0.5rem;
+  width: 10rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.cast-name {
+  color: #484848;
+  margin-bottom: 0px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+.cast-character {
+  color: #484848;
+  margin-bottom: 0px;
+  margin-left: 10px;
+}
+
+.cast-section-heading {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 0px;
+  color: #484848;
+  margin-top: 1rem;
+}
+
+@media only screen and (max-width: 767.98px) {
+  .cast {
+    width: 8rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .cast-name {
+    font-size: 16px;
+  }
+  .cast-character {
+    font-size: 14px;
   }
 }

@@ -22,6 +22,7 @@ export class ShowMoviePage extends Component {
     originalLanguage: "",
     videos: [],
     stateUpdated: false,
+    cast: [],
   };
   myRef = React.createRef();
 
@@ -47,6 +48,7 @@ export class ShowMoviePage extends Component {
           homePage: data.homepage,
           budget: data.budget,
           originalLanguage: data.original_language,
+          cast: data.credits.cast,
         });
       })
 
@@ -57,6 +59,7 @@ export class ShowMoviePage extends Component {
 
   render() {
     const backDropImage = `http://image.tmdb.org/t/p/w780/${this.state.backDropImage}`;
+
     const releaseYear = this.state.releaseDate.toString().split("-")[0];
     const scoreBg =
       this.state.userScore >= 70
@@ -68,9 +71,7 @@ export class ShowMoviePage extends Component {
     return (
       <div>
         <div
-          ref={this.myRef}
           style={{
-            // backgroundImage: "url(" + backDropImage + ")",
             backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.726),rgba(0, 0, 0, 0.584)),url(${backDropImage} )`,
           }}
           className="showPage-bg-container"
@@ -112,6 +113,35 @@ export class ShowMoviePage extends Component {
           </div>
         </div>
         <div className="container">
+          <div className="row">
+            <div className="col-lg-8">
+              <h3 className="cast-section-heading">Cast</h3>
+              <div className="castScroll">
+                {this.state.cast.map((castMember) => {
+                  return (
+                    <div className="card cast">
+                      <img
+                        class="card-img-top cast-image"
+                        src={`http://image.tmdb.org/t/p/w780/${castMember.profile_path}`}
+                        alt="Card image cap"
+                      />
+                      <p className="cast-name">{castMember.name}</p>
+                      <p className="cast-character">{castMember.character}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-12">
+              <MovieStats
+                originalLanguage={this.state.originalLanguage}
+                budget={this.state.budget}
+                revenue={this.state.revenue}
+                runtime={this.state.runTime}
+                homePage={this.state.homePage}
+              />
+            </div>
+          </div>
           <div className="row media-section">
             <div className="col-lg-8 col-md-12">
               <h3 className="trailers">
@@ -127,22 +157,12 @@ export class ShowMoviePage extends Component {
                           playing={false}
                           controls={true}
                           muted={true}
-                          light={true}
-                          width="80%"
+                          width="90%"
                         />
                       );
                     })
                   : null}
               </div>
-            </div>
-            <div className="col-lg-4 col-md-12">
-              <MovieStats
-                originalLanguage={this.state.originalLanguage}
-                budget={this.state.budget}
-                revenue={this.state.revenue}
-                runtime={this.state.runTime}
-                homePage={this.state.homePage}
-              />
             </div>
           </div>
         </div>
