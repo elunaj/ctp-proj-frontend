@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Logo from "../images/logo512.png";
+import Logo from "../images/peli.svg";
 const Navigation = () => {
   return (
     <div>
@@ -15,7 +15,7 @@ const Navigation = () => {
               height="30"
               className="d-inline-block align-top"
             />
-            FeelsFlix
+            Pelí
           </Navbar.Brand>
         </Link>
       </Navbar>

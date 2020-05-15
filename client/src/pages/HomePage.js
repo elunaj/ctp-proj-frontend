@@ -58,12 +58,10 @@ export class Movies extends Component {
               <div className="col-lg-12">
                 <div className="jumbotron">
                   <h1 className="hero-heading">
-                    Lorem ipsum dolor sit amet Lorem, ipsum..
+                    Welcome.
                   </h1>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Cumque dolore odit ipsum illo ipsa quasi alias! Ducimus
-                    totam eligendi tempora .
+                    Find movie suggestions based on your mood.
                   </p>
                   <SearchBar onSearchSubmit={this.onSearchSubmit} />
                   {this.state.error ? (
@@ -78,38 +76,51 @@ export class Movies extends Component {
         </div>
         <div className="container">
           <div className="home-info-columns">
-            <h2 className="hero-info-heading">Lorem ipsum dolor sit amet.</h2>
+            <h2 className="hero-info-heading">Our features.</h2>
             <div className="row">
               <div className="col-lg-4 col-md-6 col-sm-12">
                 <div className="home-info-column">
                   <img src={video} alt="" />
-                  <h5>Lorem, ipsum.</h5>
+                  <h5>Recommendations</h5>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Odit ratione quas possimus cupiditate veniam vitae debitis
-                    nemo deleniti dolore praesentium?
+                    Find rich, user-sourced information (images, trailers, cast, etc) 
+                    about 547,374 movies and counting. All movie info is provided by 
+                    the   <a style={{paddingLeft:'5'}}
+                            href="https://developers.themoviedb.org/" 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >Movie Database API.
+                            </a>
                   </p>
                 </div>
               </div>
               <div className="col-lg-4 col-md-6 col-sm-12">
                 <div className="home-info-column">
                   <img src={netflix} alt="" />
-                  <h5>Lorem, ipsum.</h5>
+                  <h5>Emotional Analysis</h5>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Odit ratione quas possimus cupiditate veniam vitae debitis
-                    nemo deleniti dolore praesentium?
+                    Our website can analyze emotions and tones in user-provided text. 
+                    Once we find out how you're feeling, we send you movie recommentations
+                    designed to boost your mood. User text analysis is done with the aid of 
+                    the 
+                     <a style={{paddingLeft:'5px'}}
+                        href="https://www.ibm.com/watson/services/tone-analyzer/" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                            >IBM Watson Tone Analyzer API.
+                      </a>
+
                   </p>
                 </div>
               </div>
               <div className="col-lg-4 col-md-12 col-sm-12">
                 <div className="home-info-column last">
                   <img src={couch} alt="" />
-                  <h5>Lorem, ipsum.</h5>
+                  <h5>Stop Choice Paralysis</h5>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Odit ratione quas possimus cupiditate veniam vitae debitis
-                    nemo deleniti dolore praesentium?
+                    No more wasted nights searching for the perfect film to watch. 
+                    Our website helps you easily find movies designed to boost 
+                    your positive feelings or counteract your negative feelings.
                   </p>
                 </div>
               </div>
@@ -127,15 +138,20 @@ export class Movies extends Component {
               </div>
               <div className="col-lg-6 col-md-12 col-sm-12 ">
                 <div className="home-graphic-sec-content">
-                  <h3>Lorem, ipsum dolor.</h3>
+                  <h3>Our motivation.</h3>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Possimus quaerat incidunt{" "}
+                      Movies have the ability to help us relax and take a break from 
+                      the real world. Due to the ubiquity of streaming 
+                      services, there are thousands of movies to watch just a click away.
+                    {" "}
                     <span style={{ color: "#1c58b5", fontWeight: "700" }}>
-                      illo necessitatibus delectus
+                      However, there is such a thing as too much choice. 
                     </span>{" "}
-                    sunt odio labore quas amet dicta illo necessitatibus
-                    delectus sunt odio labore quas amet dicta?
+                      At the end of a long day, the last thing anyone wants to do is wrestle with
+                      what to watch. There are just too many options and too much risk of 
+                      picking a movie you won’t like. Our web app helps you find movies with 
+                      ease, tailored to your help your mood. 
+
                   </p>
                 </div>
               </div>
@@ -147,10 +163,35 @@ export class Movies extends Component {
             <div className="col-lg-12">
               <div className="home-exit-section-container">
                 <h2>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                   Created by 
+                  <a style={{paddingLeft:'10px', paddingRight: '10px'}}  
+                    href="https://www.linkedin.com/in/dayan-ramirez/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Dayan Ramirez
+                  </a>
+                  <p style={{display: 'inline'}}>
+                    &
+                  </p>
+                  <a style={{paddingLeft:'10px', paddingRight: '10px'}}  
+                    href="https://www.linkedin.com/in/eliasluna23/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Elias Luna
+                  </a>
+                  <br />
+                  <p style={{display: 'inline'}}>
+                    @
+                  </p>
+                  <a href="https://cunytechprep.nyc/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    > CUNY Tech Prep
+                  </a>
                 </h2>
+                
                 <a onClick={this.scrollToTop} className="primary-button">
-                  Lets go!
+                  Back-to-Top
                 </a>
               </div>
             </div>
