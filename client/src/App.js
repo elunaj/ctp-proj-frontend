@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
+import ScrollToTop from "../src/components/ScrollToTop";
 import ResultsPage from "./pages/ResultsPage";
 import Navigation from "./components/Navigation";
 import ShowMoviePage from "./pages/ShowMoviePage";
@@ -9,6 +10,8 @@ import ShowMoviePage from "./pages/ShowMoviePage";
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
+
       <Navigation />
 
       <Switch>
