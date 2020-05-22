@@ -114,25 +114,27 @@ export class ShowMoviePage extends Component {
         </div>
         <div className="container">
           <div className="row">
-            <div className="col-lg-8">
-              <h3 className="cast-section-heading">Cast</h3>
+            <div className="col-lg-9">
+              <h3 className="cast-section-heading">Top Billed Cast</h3>
               <div className="castScroll">
                 {this.state.cast.map((castMember) => {
-                  return (
-                    <div className="card cast">
-                      <img
-                        class="card-img-top cast-image"
-                        src={`http://image.tmdb.org/t/p/w780/${castMember.profile_path}`}
-                        alt="Card image cap"
-                      />
-                      <p className="cast-name">{castMember.name}</p>
-                      <p className="cast-character">{castMember.character}</p>
-                    </div>
-                  );
+                  if (castMember.order <= 7) {
+                    return (
+                      <div className="card cast">
+                        <img
+                          class="card-img-top cast-image"
+                          src={`http://image.tmdb.org/t/p/w780/${castMember.profile_path}`}
+                          alt="Card image cap"
+                        />
+                        <p className="cast-name">{castMember.name}</p>
+                        <p className="cast-character">{castMember.character}</p>
+                      </div>
+                    );
+                  }
                 })}
               </div>
             </div>
-            <div className="col-lg-4 col-md-12">
+            <div className="col-lg-3 col-md-12">
               <MovieStats
                 originalLanguage={this.state.originalLanguage}
                 budget={this.state.budget}
@@ -143,7 +145,7 @@ export class ShowMoviePage extends Component {
             </div>
           </div>
           <div className="row media-section">
-            <div className="col-lg-8 col-md-12">
+            <div className="col-lg-9 col-md-12">
               <h3 className="trailers">
                 {this.state.videos[1] ? "Trailers" : "Trailer"}
               </h3>
