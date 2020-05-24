@@ -3,6 +3,8 @@ import MovieList from "../components/MovieList";
 import "../styles/ResultsPage.css";
 import ToneMessage from "../components/ToneMessage";
 import { useParams } from "react-router-dom";
+import PropagateLoader from "react-spinners/PropagateLoader";
+
 export class ResultsPage extends Component {
   render() {
     return (
@@ -10,7 +12,7 @@ export class ResultsPage extends Component {
         <div className="results-hero-container">
           <ToneMessage />
         </div>
-        <MovieList movies={this.props.location.movies} />
+          <MovieList movies={this.props.location.movies} />
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React from "react";
 import MovieCard from "../components/MovieCard";
+import PropagateLoader from "react-spinners/PropagateLoader";
 
 const MovieList = () => {
   let moviesData = JSON.parse(localStorage.getItem("movies"));
@@ -17,21 +18,27 @@ const MovieList = () => {
   });
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-lg-12">
-          <div className="card-columns">{movie} </div>
-        </div>
-      </div>
+      {movie ? (
+        
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="card-columns">{movie}</div>
+              </div>
+            </div>
+                  
+            ) : (
+            
+            <div class="mx-auto" style={{width: "0px", marginTop: '100px'}}>
+                <PropagateLoader
+                  size={25}
+                  color={"#1c58b5"}
+                  loading={true}
+                  />
+            </div>
+        )}
     </div>
   );
 
-  //If the movies are undefined or if the user somehow makes it this far without submiting the form
-  //the the user back to the homepage to fill out the form
-  // return (
-  //   <h2 className="ui container ui big red label">
-  //     <Redirect to="/" />
-  //   </h2>
-  // );
 };
 
 export default MovieList;
