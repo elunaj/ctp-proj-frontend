@@ -3,7 +3,8 @@ import MovieList from "../components/MovieList";
 import "../styles/ResultsPage.css";
 import ToneMessage from "../components/ToneMessage";
 import { useParams } from "react-router-dom";
-import ShowList from "../components/ShowList";
+import PropagateLoader from "react-spinners/PropagateLoader";
+
 export class ResultsPage extends Component {
   state = { displayMovies: true, displayShows: false };
 
@@ -28,11 +29,7 @@ export class ResultsPage extends Component {
           <button onClick={this.displayMovies}>movies</button>
           <button onClick={this.displayShows}>shows</button>
         </div>
-        {this.state.displayMovies ? (
-          <MovieList movies={this.props.location.movies} />
-        ) : (
-          <ShowList />
-        )}
+        <MovieList movies={this.props.location.movies} />
       </div>
     );
   }
