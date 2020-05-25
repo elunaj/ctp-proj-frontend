@@ -15,7 +15,7 @@ const Navigation = () => {
               height="30"
               className="d-inline-block align-top"
             />
-            Pelí
+            <p className="Nav-text">Pelí</p>
           </Navbar.Brand>
         </Link>
       </Navbar>

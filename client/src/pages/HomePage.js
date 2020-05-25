@@ -15,9 +15,6 @@ import "../styles/HomePage.css";
 export class Movies extends Component {
   state = { error: "", success: false };
 
-  // Callback for making a network request when the search term changes.
-  // The network request is asynchronous, so we tag our function as `async` and
-  // `await` to allow the promise to resolve
   onSearchSubmit = async (term) => {
     const response = await axios
       .post("http://localhost:5000/analysis/", {
@@ -30,6 +27,7 @@ export class Movies extends Component {
         );
         localStorage.setItem("tone", JSON.stringify(response.data.tone));
         this.setState({ success: true });
+        this.getShows(response.data.tone);
       })
       .catch((error) => {
         console.log(error);
@@ -39,6 +37,14 @@ export class Movies extends Component {
   scrollToTop() {
     scroll.scrollToTop();
   }
+  getShows = (tone) => {
+    axios.get(`http://localhost:5000/tv/${tone}`, {}).then((response) => {
+      localStorage.setItem(
+        "shows",
+        JSON.stringify(response.data.response.results)
+      );
+    });
+  };
   render() {
     if (this.state.success)
       return (
@@ -57,12 +63,8 @@ export class Movies extends Component {
             <div className="row">
               <div className="col-lg-12">
                 <div className="jumbotron">
-                  <h1 className="hero-heading">
-                    Welcome.
-                  </h1>
-                  <p>
-                    Find movie suggestions based on your mood.
-                  </p>
+                  <h1 className="hero-heading">Welcome.</h1>
+                  <p>Find movie suggestions based on your mood.</p>
                   <SearchBar onSearchSubmit={this.onSearchSubmit} />
                   {this.state.error ? (
                     <h1 style={{ color: "red" }}>there has been an error</h1>
@@ -83,14 +85,17 @@ export class Movies extends Component {
                   <img src={video} alt="" />
                   <h5>Recommendations</h5>
                   <p>
-                    Find rich, user-sourced information (images, trailers, cast, etc) 
-                    about 547,374 movies and counting. All movie info is provided by 
-                    the   <a style={{paddingLeft:'5'}}
-                            href="https://developers.themoviedb.org/" 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >Movie Database API.
-                            </a>
+                    Find rich, user-sourced information (images, trailers, cast,
+                    etc) about 547,374 movies and counting. All movie info is
+                    provided by the{" "}
+                    <a
+                      style={{ paddingLeft: "5" }}
+                      href="https://developers.themoviedb.org/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Movie Database API.
+                    </a>
                   </p>
                 </div>
               </div>
@@ -99,17 +104,18 @@ export class Movies extends Component {
                   <img src={netflix} alt="" />
                   <h5>Emotional Analysis</h5>
                   <p>
-                    Our website can analyze emotions and tones in user-provided text. 
-                    Once we find out how you're feeling, we send you movie recommentations
-                    designed to boost your mood. User text analysis is done with the aid of 
-                    the 
-                     <a style={{paddingLeft:'5px'}}
-                        href="https://www.ibm.com/watson/services/tone-analyzer/" 
-                        target="_blank"
-                        rel="noopener noreferrer"
-                            >IBM Watson Tone Analyzer API.
-                      </a>
-
+                    Our website can analyze emotions and tones in user-provided
+                    text. Once we find out how you're feeling, we send you movie
+                    recommentations designed to boost your mood. User text
+                    analysis is done with the aid of the
+                    <a
+                      style={{ paddingLeft: "5px" }}
+                      href="https://www.ibm.com/watson/services/tone-analyzer/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      IBM Watson Tone Analyzer API.
+                    </a>
                   </p>
                 </div>
               </div>
@@ -118,9 +124,10 @@ export class Movies extends Component {
                   <img src={couch} alt="" />
                   <h5>Stop Choice Paralysis</h5>
                   <p>
-                    No more wasted nights searching for the perfect film to watch. 
-                    Our website helps you easily find movies designed to boost 
-                    your positive feelings or counteract your negative feelings.
+                    No more wasted nights searching for the perfect film to
+                    watch. Our website helps you easily find movies designed to
+                    boost your positive feelings or counteract your negative
+                    feelings.
                   </p>
                 </div>
               </div>
@@ -140,18 +147,18 @@ export class Movies extends Component {
                 <div className="home-graphic-sec-content">
                   <h3>Our motivation.</h3>
                   <p>
-                      Movies have the ability to help us relax and take a break from 
-                      the real world. Due to the ubiquity of streaming 
-                      services, there are thousands of movies to watch just a click away.
-                    {" "}
+                    Movies have the ability to help us relax and take a break
+                    from the real world. Due to the ubiquity of streaming
+                    services, there are thousands of movies to watch just a
+                    click away.{" "}
                     <span style={{ color: "#1c58b5", fontWeight: "700" }}>
-                      However, there is such a thing as too much choice. 
+                      However, there is such a thing as too much choice.
                     </span>{" "}
-                      At the end of a long day, the last thing anyone wants to do is wrestle with
-                      what to watch. There are just too many options and too much risk of 
-                      picking a movie you won’t like. Our web app helps you find movies with 
-                      ease, tailored to your help your mood. 
-
+                    At the end of a long day, the last thing anyone wants to do
+                    is wrestle with what to watch. There are just too many
+                    options and too much risk of picking a movie you won’t like.
+                    Our web app helps you find movies with ease, tailored to
+                    your help your mood.
                   </p>
                 </div>
               </div>
@@ -163,33 +170,35 @@ export class Movies extends Component {
             <div className="col-lg-12">
               <div className="home-exit-section-container">
                 <h2>
-                   Created by 
-                  <a style={{paddingLeft:'10px', paddingRight: '10px'}}  
-                    href="https://www.linkedin.com/in/dayan-ramirez/" 
+                  Created by
+                  <a
+                    style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                    href="https://www.linkedin.com/in/dayan-ramirez/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >Dayan Ramirez
+                  >
+                    Dayan Ramirez
                   </a>
-                  <p style={{display: 'inline'}}>
-                    &
-                  </p>
-                  <a style={{paddingLeft:'10px', paddingRight: '10px'}}  
-                    href="https://www.linkedin.com/in/eliasluna23/" 
+                  <p style={{ display: "inline" }}>&</p>
+                  <a
+                    style={{ paddingLeft: "10px", paddingRight: "10px" }}
+                    href="https://www.linkedin.com/in/eliasluna23/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >Elias Luna
+                  >
+                    Elias Luna
                   </a>
                   <br />
-                  <p style={{display: 'inline'}}>
-                    @
-                  </p>
-                  <a href="https://cunytechprep.nyc/" 
+                  <p style={{ display: "inline" }}>@</p>
+                  <a
+                    href="https://cunytechprep.nyc/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    > CUNY Tech Prep
+                  >
+                    CUNY Tech Prep
                   </a>
                 </h2>
-                
+
                 <a onClick={this.scrollToTop} className="primary-button">
                   Back-to-Top
                 </a>

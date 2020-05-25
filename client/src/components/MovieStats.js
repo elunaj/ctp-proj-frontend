@@ -2,31 +2,8 @@ import React from "react";
 import LogoNodejs from "react-ionicons/lib/LogoNodejs";
 import MdLink from "react-ionicons/lib/MdLink";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
-// const numberToDollar = (number) => {
-//   let digits = ("" + number).split("");
-//   let dollar = [];
-//   console.log(digits);
-//   for (let i = 0; i < digits.length - 1; i++) {
-//     if (i % 2 === 0) {
-//       dollar.push(digits[i] + ",");
-//     }
-//     if(digits.length-)
-//     dollar.push(digits[i]);
-//   }
-//   return dollar;
-//   // console.log(number.toString().split(" "));
-//   // return number.toString().split(" ");
-
-//   // .reduce((reversed, character) => {
-//   //   return character + reversed;
-//   // });
-// };
 
 function formattime(numberofminutes) {
-  console.log(numberofminutes);
-
-  console.log(Number(numberofminutes));
-
   let zero = "0",
     hours,
     minutes,

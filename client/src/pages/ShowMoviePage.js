@@ -29,7 +29,7 @@ export class ShowMoviePage extends Component {
   componentDidMount() {
     Axios.get(`http://localhost:5000/show/${this.props.location.state.id}`, {})
       .then((response) => {
-        let data = response.data;
+        let data = response.data.response;
         console.log(data);
         this.setState({
           originalTitle: data.original_title,
@@ -85,7 +85,6 @@ export class ShowMoviePage extends Component {
                     src={`http://image.tmdb.org/t/p/w780/${this.state.posterImage}`}
                     alt="Card image cap"
                   />
-                  <div class="card-body"></div>
                 </div>
               </div>
               <div className="col-lg-8 showPage-hero-content-container-right">
@@ -160,6 +159,7 @@ export class ShowMoviePage extends Component {
                           controls={true}
                           muted={true}
                           width="90%"
+                          light={true}
                         />
                       );
                     })
