@@ -17,7 +17,6 @@ export class Movies extends Component {
   state = { error: "", success: false, loading: false };
 
   onSearchSubmit = async (term) => {
-
     this.setState({ loading: true });
 
     const response = await axios
@@ -30,12 +29,7 @@ export class Movies extends Component {
           JSON.stringify(response.data.response.results)
         );
         localStorage.setItem("tone", JSON.stringify(response.data.tone));
-<<<<<<< HEAD
-        this.setState({ success: true });
-        this.getShows(response.data.tone);
-=======
         this.setState({ success: true, loading: false });
->>>>>>> 1e35dee4530538219ce7becd00b411ce14a6bf38
       })
       .catch((error) => {
         console.log(error);
@@ -54,7 +48,6 @@ export class Movies extends Component {
     });
   };
   render() {
-
     if (this.state.success)
       return (
         <Redirect
@@ -76,31 +69,33 @@ export class Movies extends Component {
                   <p>Find movie suggestions based on your mood.</p>
                   <SearchBar onSearchSubmit={this.onSearchSubmit} />
                   {this.state.error ? (
-                      <div style={
-                        {width: '50%', 
-                        fontSize: '14px', 
-                        textAlign: 'center',
-                        marginBottom: '-25px'
-                      }} 
-                        class="mx-auto alert alert-danger" 
-                        role="alert">
-                        There has been an error. Please try again.
-                      </div>
-                     
+                    <div
+                      style={{
+                        width: "50%",
+                        fontSize: "14px",
+                        textAlign: "center",
+                        marginBottom: "-25px",
+                      }}
+                      class="mx-auto alert alert-danger"
+                      role="alert"
+                    >
+                      There has been an error. Please try again.
+                    </div>
                   ) : (
                     ""
                   )}
 
                   {this.state.loading ? (
-                    <div class="mx-auto" style={{width: "0px", marginTop: '30px'}}>
+                    <div
+                      class="mx-auto"
+                      style={{ width: "0px", marginTop: "30px" }}
+                    >
                       <PropagateLoader
                         size={25}
                         color={"#1c58b5"}
                         loading={this.state.loading}
                       />
-                      </div>
-                    
-               
+                    </div>
                   ) : (
                     ""
                   )}
