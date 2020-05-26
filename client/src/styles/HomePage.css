@@ -162,6 +162,7 @@ body {
     margin-left: 0px;
   }
 }
+
 /* EXIT SECTION  */
 .home-exit-section {
   height: 80%;
@@ -179,6 +180,13 @@ body {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+}
+@media only screen and (max-width: 575.98px) {
+  .home-exit-section h2,
+  a,
+  p {
+    font-size: 1.5rem;
+  }
 }
 
 .primary-button {
@@ -205,4 +213,12 @@ body {
 .primary-button:active {
   transform: translateY(-1px);
   box-shadow: 0 5px 10px #1c59b575 !important;
+}
+
+.Nav-text {
+  font-family: "Bebas Neue", cursive;
+  display: inline;
+  margin-left: 10px;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
 }

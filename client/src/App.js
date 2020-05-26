@@ -6,7 +6,7 @@ import ScrollToTop from "../src/components/ScrollToTop";
 import ResultsPage from "./pages/ResultsPage";
 import Navigation from "./components/Navigation";
 import ShowMoviePage from "./pages/ShowMoviePage";
-
+import ShowTvPage from "./pages/ShowTvPage";
 const App = () => {
   return (
     <Router>
@@ -17,6 +17,7 @@ const App = () => {
       <Switch>
         <Route path="/results" component={ResultsPage} />
         <Route path="/show" component={ShowMoviePage} />
+        <Route path="/showTv" component={ShowTvPage} />
         <Route path="/" component={HomePage} />
         <HomePage />
       </Switch>

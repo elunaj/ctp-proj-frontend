@@ -24,15 +24,17 @@ export class ShowMoviePage extends Component {
     videos: [],
     stateUpdated: false,
     cast: [],
-    loading: true
+    loading: true,
   };
   myRef = React.createRef();
 
   componentDidMount() {
-    Axios.get(`http://localhost:5000/show/${this.props.location.state.id}`, {})
+    Axios.get(
+      `https://desolate-eyrie-65348.herokuapp.com/show/${this.props.location.state.id}`,
+      {}
+    )
       .then((response) => {
-        let data = response.data;
-        console.log(data);
+        let data = response.data.response;
         this.setState({
           originalTitle: data.original_title,
           filmTitle: data.title,
@@ -51,15 +53,15 @@ export class ShowMoviePage extends Component {
           budget: data.budget,
           originalLanguage: data.original_language,
           cast: data.credits.cast,
-          loading: false
+          loading: false,
         });
       })
 
       .catch((error) => {
         console.log(error);
         this.setState({
-          loading: false
-        })
+          loading: false,
+        });
       });
   }
 
@@ -75,21 +77,12 @@ export class ShowMoviePage extends Component {
         : "#962329";
 
     return (
-
       <div>
-          
-          {this.state.loading ? (
-          
-              <div class="mx-auto" style={{width: "0px", marginTop: '250px'}}>
-                  <PropagateLoader
-                    size={25}
-                    color={"#1c58b5"}
-                    loading={true}
-                    />
-              </div>
-                    
-          ) : (
-          
+        {this.state.loading ? (
+          <div className="mx-auto" style={{ width: "0px", marginTop: "250px" }}>
+            <PropagateLoader size={25} color={"#1c58b5"} loading={true} />
+          </div>
+        ) : (
           <div>
             <div
               style={{
@@ -102,11 +95,10 @@ export class ShowMoviePage extends Component {
                   <div className="col-lg-4 showPage-hero-content-container">
                     <div className="card d-none d-lg-block showCard">
                       <img
-                        class="card-img-top"
+                        className="card-img-top"
                         src={`http://image.tmdb.org/t/p/w780/${this.state.posterImage}`}
-                        alt="Card image cap"
+                        alt="Card pic "
                       />
-                      <div class="card-body"></div>
                     </div>
                   </div>
                   <div className="col-lg-8 showPage-hero-content-container-right">
@@ -117,7 +109,7 @@ export class ShowMoviePage extends Component {
                     <p className="genres">
                       {this.state.genres.map((genre, i) => {
                         return (
-                          <span style={{ marginRight: "5px" }} key={i}>
+                          <span key={i} style={{ marginRight: "5px" }}>
                             {genre.name}
                           </span>
                         );
@@ -133,22 +125,24 @@ export class ShowMoviePage extends Component {
                 </div>
               </div>
             </div>
-            <div className="container">
+            <div className="container-fluid">
               <div className="row">
                 <div className="col-lg-9">
                   <h3 className="cast-section-heading">Top Billed Cast</h3>
                   <div className="castScroll">
-                    {this.state.cast.map((castMember) => {
+                    {this.state.cast.map((castMember, i) => {
                       if (castMember.order <= 7) {
                         return (
-                          <div className="card cast">
+                          <div className="card cast" key={i}>
                             <img
-                              class="card-img-top cast-image"
+                              className="card-img-top cast-image"
                               src={`http://image.tmdb.org/t/p/w780/${castMember.profile_path}`}
-                              alt="Card image cap"
+                              alt="Cast pic "
                             />
                             <p className="cast-name">{castMember.name}</p>
-                            <p className="cast-character">{castMember.character}</p>
+                            <p className="cast-character">
+                              {castMember.character}
+                            </p>
                           </div>
                         );
                       }
@@ -181,6 +175,7 @@ export class ShowMoviePage extends Component {
                               controls={true}
                               muted={true}
                               width="90%"
+                              key={video.key}
                             />
                           );
                         })
@@ -190,11 +185,8 @@ export class ShowMoviePage extends Component {
               </div>
             </div>
           </div>
-          
         )}
-
       </div>
-
     );
   }
 }

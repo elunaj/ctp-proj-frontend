@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 class SearchBar extends React.Component {
   state = { term: "" };
@@ -24,7 +23,7 @@ class SearchBar extends React.Component {
               aria-label="How are you feeling?"
               aria-describedby="basic-addon2"
             />
-            <div class="input-group-append">
+            <div className="input-group-append">
               <button
                 className="btn btn-outline-secondary search-button"
                 type="submit"
