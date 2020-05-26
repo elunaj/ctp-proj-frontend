@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import { Animated } from "react-animated-css";
 
 import movieGraphic from "../images/undraw_movie_night_fldd.svg";
 import netflix from "../images/netflix-home.svg";
@@ -75,22 +76,22 @@ export class Movies extends Component {
             <div className="row">
               <div className="col-lg-12">
                 <div className="jumbotron">
-                  <h1 className="hero-heading">Welcome.</h1>
+                  <h1 className="hero-heading">Welcome!</h1>
                   <p>Find movie suggestions based on your mood.</p>
                   <SearchBar onSearchSubmit={this.onSearchSubmit} />
                   {this.state.error ? (
-                    <div
-                      style={{
-                        width: "50%",
-                        fontSize: "14px",
-                        textAlign: "center",
-                        marginBottom: "-25px",
-                      }}
-                      className="mx-auto alert alert-danger"
-                      role="alert"
+                    <Animated
+                      animationIn="shake"
+                      animationOutDuration="900"
+                      isVisible={true}
                     >
-                      There has been an error. Please enter a valid statement.
-                    </div>
+                      <div
+                        className="mx-auto alert alert-danger err"
+                        role="alert"
+                      >
+                        Please enter a valid statement.
+                      </div>
+                    </Animated>
                   ) : (
                     ""
                   )}

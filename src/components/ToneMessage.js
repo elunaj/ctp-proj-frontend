@@ -12,7 +12,7 @@ export class ToneMessage extends Component {
               <h1 className="results-hero-heading">Hey there!</h1>
               <p className="results-hero-paragraph">
                 Hey there! We’ve noticed that you're feeling low, and thats
-                okay, here are some movies to lift your spirits!
+                okay, here are some movies and shows to lift your spirits!
               </p>
             </div>
           </div>
@@ -27,8 +27,8 @@ export class ToneMessage extends Component {
               <p className="results-hero-paragraph">
                 As difficult as your day may have been, anger is an acid that
                 can do more harm to the vessel in which it is stored, than to
-                anything on which it is poured. We hope these movies cheer you
-                up.
+                anything on which it is poured. We hope these movies and shows
+                cheer you up.
               </p>
             </div>
           </div>
@@ -39,11 +39,11 @@ export class ToneMessage extends Component {
             <div className="tone-message-container">
               <h1 className="results-hero-heading">Hi there.</h1>
               <p className="results-hero-paragraph">
-               “Fear is the main source of superstition, and one of the main 
-               sources of cruelty. To conquer fear is the beginning of wisdom.”
+                “Fear is the main source of superstition, and one of the main
+                sources of cruelty. To conquer fear is the beginning of wisdom.”
                 — Bertrand Russell
               </p>
-                We hope these movies help you overcome your fear.
+              We hope these movies and shows help you overcome your fear.
             </div>
           </div>
         );
@@ -53,12 +53,13 @@ export class ToneMessage extends Component {
             <div className="tone-message-container">
               <h1 className="results-hero-heading">Hey there!</h1>
               <p className="results-hero-paragraph">
-                “Joy does not simply happen to us. We have to choose joy 
-                and keep choosing it every day.”
-                - Henri Nouwen
+                “Joy does not simply happen to us. We have to choose joy and
+                keep choosing it every day.” - Henri Nouwen
               </p>
-              <p>We think the movies below will help you maintain
-              your cheery mood.</p>
+              <p>
+                We think the movies and shows below will help you maintain your
+                cheery mood.
+              </p>
             </div>
           </div>
         );
@@ -68,11 +69,13 @@ export class ToneMessage extends Component {
             <div className="tone-message-container">
               <h1 className="results-hero-heading">Hey there!</h1>
               <p className="results-hero-paragraph">
-                "The important thing is not to stop questioning. Curiosity 
-                has its own reason for existing." 
-                - Albert Einstein
+                "The important thing is not to stop questioning. Curiosity has
+                its own reason for existing." - Albert Einstein
               </p>
-              <p>We believe the films below will challenge your curiosity.</p>
+              <p>
+                We believe the movies and shows below will challenge your
+                curiosity.
+              </p>
             </div>
           </div>
         );
@@ -82,11 +85,13 @@ export class ToneMessage extends Component {
             <div className="tone-message-container">
               <h1 className="results-hero-heading">Hey there!</h1>
               <p className="results-hero-paragraph">
-                “Confidence is contagious. So is lack of confidence.”
-                – Vince Lombardi
+                “Confidence is contagious. So is lack of confidence.” – Vince
+                Lombardi
               </p>
-              <p>Watch one of the movies below to maintain your
-              cool demeanor.</p>
+              <p>
+                Watch one of the movies and shows below to maintain your cool
+                demeanor.
+              </p>
             </div>
           </div>
         );
@@ -96,12 +101,10 @@ export class ToneMessage extends Component {
             <div className="tone-message-container">
               <h1 className="results-hero-heading">Hey there!</h1>
               <p className="results-hero-paragraph">
-                “Life is either a daring adventure or nothing at all.”
-                ― Helen Keller
+                “Life is either a daring adventure or nothing at all.” ― Helen
+                Keller
               </p>
-              <p>
-              Take a risk and watch one of the movies below!
-              </p>
+              <p>Take a risk and watch one of the movies and shows below!</p>
             </div>
           </div>
         );
@@ -111,8 +114,9 @@ export class ToneMessage extends Component {
             <div className="tone-message-container">
               <h1 className="results-hero-heading">Hello!</h1>
               <p className="results-hero-paragraph">
-                After analyzing your tone we came up with some movies for you!
-                Here are a list of movies that you may be in the mood for.
+                After analyzing your tone we came up with some movies and shows
+                for you! Here are a list of movies and shows that you may be in
+                the mood for.
               </p>
             </div>
           </div>

@@ -32,7 +32,7 @@ body {
   font-style: normal;
   font-weight: bold;
   text-align: left;
-  font-size: 3rem;
+  font-size: 2.5rem;
   line-height: 4rem;
   letter-spacing: 0.05em;
   height: 50%;
@@ -160,6 +160,11 @@ body {
 @media only screen and (max-width: 767.98px) {
   .home-graphic-sec-content {
     margin-left: 0px;
+    width: 100%;
+  }
+  .err {
+    width: 100% !important;
+    font-size: 1.125rem;
   }
 }
 
@@ -182,13 +187,16 @@ body {
   margin-right: auto;
 }
 @media only screen and (max-width: 575.98px) {
-  .home-exit-section h2,
-  a,
-  p {
+  .home-exit-section h2 {
+    font-size: 1.5rem;
+  }
+  .home-exit-section p {
+    font-size: 1.5rem;
+  }
+  .home-exit-section a {
     font-size: 1.5rem;
   }
 }
-
 .primary-button {
   display: inline-block;
   padding: 0.8rem 4rem 0.8rem 4rem;
@@ -221,4 +229,11 @@ body {
   margin-left: 10px;
   font-size: 1.5rem;
   letter-spacing: 0.1rem;
+}
+
+.err {
+  width: 50%;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: -25px;
 }
