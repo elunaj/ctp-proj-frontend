@@ -1,5 +1,4 @@
 import React from "react";
-import MovieCard from "../components/MovieCard";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import ShowCard from "./ShowCard";
 
@@ -18,6 +17,7 @@ const MovieList = () => {
         id={movie.id}
         backdrop={movie.backdrop_path}
         classNum={classNum}
+        key={movie.id}
       />
     );
   });
@@ -26,7 +26,7 @@ const MovieList = () => {
       {movie ? (
         <div className="grid-container">{movie} </div>
       ) : (
-        <div class="mx-auto" style={{ width: "0px", marginTop: "100px" }}>
+        <div className="mx-auto" style={{ width: "0px", marginTop: "100px" }}>
           <PropagateLoader size={25} color={"#1c58b5"} loading={true} />
         </div>
       )}

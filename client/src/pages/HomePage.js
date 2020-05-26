@@ -14,13 +14,14 @@ import "../styles/HomePage.css";
 
 // import MovieList from "./MovieList";
 export class Movies extends Component {
-  state = { error: "", success: false, loading: false };
+  state = { error: "", success: false, loading: false, tone: "" };
 
   onSearchSubmit = async (term) => {
     this.setState({ loading: true });
 
     const response = await axios
-      .post("http://localhost:5000/analysis/", {
+
+      .post("https://desolate-eyrie-65348.herokuapp.com/analysis", {
         text: term,
       })
       .then((response) => {
@@ -29,7 +30,24 @@ export class Movies extends Component {
           JSON.stringify(response.data.response.results)
         );
         localStorage.setItem("tone", JSON.stringify(response.data.tone));
-        this.setState({ success: true, loading: false });
+        this.setState({
+          success: true,
+          loading: false,
+          tone: response.data.tone,
+        });
+      })
+      .then(() => {
+        axios
+          .get(
+            `https://desolate-eyrie-65348.herokuapp.com/tv/${this.state.tone}`,
+            {}
+          )
+          .then((response) => {
+            localStorage.setItem(
+              "shows",
+              JSON.stringify(response.data.response.results)
+            );
+          });
       })
       .catch((error) => {
         console.log(error);
@@ -39,14 +57,6 @@ export class Movies extends Component {
   scrollToTop() {
     scroll.scrollToTop();
   }
-  getShows = (tone) => {
-    axios.get(`http://localhost:5000/tv/${tone}`, {}).then((response) => {
-      localStorage.setItem(
-        "shows",
-        JSON.stringify(response.data.response.results)
-      );
-    });
-  };
   render() {
     if (this.state.success)
       return (
@@ -76,7 +86,7 @@ export class Movies extends Component {
                         textAlign: "center",
                         marginBottom: "-25px",
                       }}
-                      class="mx-auto alert alert-danger"
+                      className="mx-auto alert alert-danger"
                       role="alert"
                     >
                       There has been an error. Please try again.
@@ -87,7 +97,7 @@ export class Movies extends Component {
 
                   {this.state.loading ? (
                     <div
-                      class="mx-auto"
+                      className="mx-auto"
                       style={{ width: "0px", marginTop: "30px" }}
                     >
                       <PropagateLoader

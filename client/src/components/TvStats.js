@@ -1,7 +1,7 @@
 import React from "react";
 import MdLink from "react-ionicons/lib/MdLink";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
-
+import "../styles/ShowMoviePage.css";
 function formattime(numberofminutes) {
   let time;
   time = new Date(0, 0, 0, 0, numberofminutes, 0, 0);
@@ -9,16 +9,14 @@ function formattime(numberofminutes) {
   let mm = time.getMinutes();
   return hh + "h " + mm + "m";
 }
-const formatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-});
-const MovieStats = ({
+
+const TvStats = ({
   originalLanguage,
-  budget,
-  revenue,
+  originalName,
   runtime,
   homePage,
+  status,
+  networks,
 }) => {
   return (
     <div className="movie-stats">
@@ -29,18 +27,29 @@ const MovieStats = ({
           </a>
         </span>
       </OverlayTrigger>
-
+      <h5> Original Name </h5>
+      <p>{originalName}</p>
       <h5> Original Language </h5>
       <p>{originalLanguage}</p>
-
-      <h5> Budget </h5>
-      <p>{formatter.format(budget)} </p>
-      <h5> Revenue </h5>
-      <p>{formatter.format(revenue)}</p>
       <h5> Runtime </h5>
+
       <p>{formattime(runtime)}</p>
+      <h5> Status </h5>
+
+      <p>{status}</p>
+      <h5> Networks </h5>
+      {networks.map((network, i) => {
+        return (
+          <img
+            key={i}
+            className="network-logo"
+            src={`http://image.tmdb.org/t/p/w780/${network.logo_path}`}
+            alt=""
+          />
+        );
+      })}
     </div>
   );
 };
 
-export default MovieStats;
+export default TvStats;

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ShowCard from "../components/ShowCard";
-import axios from "axios";
 
 class ShowList extends Component {
   render() {
@@ -18,6 +17,7 @@ class ShowList extends Component {
           image={show.poster_path}
           id={show.id}
           backdrop={show.backdrop_path}
+          key={show.id}
         />
       );
     });
