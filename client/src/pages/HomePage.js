@@ -89,7 +89,7 @@ export class Movies extends Component {
                       className="mx-auto alert alert-danger"
                       role="alert"
                     >
-                      There has been an error. Please try again.
+                      There has been an error. Please enter a valid statement.
                     </div>
                   ) : (
                     ""
