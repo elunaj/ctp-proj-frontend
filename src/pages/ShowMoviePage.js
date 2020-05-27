@@ -173,7 +173,7 @@ export class ShowMoviePage extends Component {
                               url={`https://www.youtube.com/watch?v=${video.key}`}
                               playing={false}
                               controls={true}
-                              muted={true}
+                              muted={false}
                               width="90%"
                               key={video.key}
                             />

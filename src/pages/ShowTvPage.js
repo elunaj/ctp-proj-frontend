@@ -181,8 +181,8 @@ export class ShowTvPage extends Component {
                           url={`https://www.youtube.com/watch?v=${video.key}`}
                           playing={false}
                           controls={true}
-                          muted={true}
-                          width="90%"
+                          muted={false}
+                          width="100%"
                           key={i}
                         />
                       );
